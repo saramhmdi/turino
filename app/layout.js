@@ -1,4 +1,5 @@
 import LayoutPage from "@/components/templates/LayoutPage";
+import TanstackQueryProvider from "@/provider/TanstackQueryProvider";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -25,8 +26,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${yekanBakh.variable} `}>
+      <body className={`${yekanBakh.variable} ${vazirFD.variable}`}>
+        {/* <TanstackQueryProvider> */}
         <LayoutPage>{children}</LayoutPage>
+        {/* </TanstackQueryProvider> */}
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-function ImageIcon({ iconName, className }) {
+function ImageIcon({ iconName, className  }) {
   return (
     <Image
       src={`/images/${iconName}.svg`}

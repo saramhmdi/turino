@@ -1,11 +1,11 @@
-import { convertToPersianNumbers } from "@/utils/helpers";
+import { e2p } from "@/core/utils/numbersChange";
 import Link from "next/link";
 import ImageIcon from "../atoms/icons/ImageIcon";
 import TurinoCustomerServicesLinks from "../molecules/TurinoCustomerServicesLinks";
 
 function Footer() {
   const turinItems = [
-    { name: "درباره ما", link: "/about" },
+    { name: "درباره ما", link: "/#about" },
     { name: "تماس با ما", link: "/contact" },
     { name: "چرا تورینو", link: "/why-us" },
     { name: "بیمه مسافرتی", link: "/travel-insurance" },
@@ -37,7 +37,7 @@ function Footer() {
             <p className="text-[#000000]  font-normal	text-sm	md:text-[15px]">
               تلفن پشتیبانی:
               <span className="font-vazirFd">
-                {convertToPersianNumbers("8574-021")}
+                {e2p("8574-021")}
               </span>
             </p>
           </div>
