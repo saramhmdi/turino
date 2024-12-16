@@ -9,8 +9,15 @@ module.exports = {
     extend: {
       colors: {
         background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "var(--primary)",
+        text: "var(--text-color)",
+        complementary: "var(--complementary)",
       },
+      fontFamily: {
+        yekanBakh: ["var(--font-yekan-bakh)", "sans-serif"],
+        vazirFd: ["var(--font-vazir-fd)", "sans-serif"],
+      },
+      
     },
   },
   plugins: [],

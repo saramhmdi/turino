@@ -4,7 +4,10 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --primary: #28a745;
+  --text-color: #282828;
+  --complementry: #009eca;
+  /* --text-color: #595959; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,9 +16,25 @@
     --foreground: #ededed;
   }
 }
+* {
+  padding: 0;
+  margin: 0;
+}
 
 body {
-  color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-yekan-bakh);
+}
+@media (max-width: 767px) {
+  .custom-dashed-border {
+    border-style: dashed;
+    border-image: repeating-linear-gradient(
+        to right,
+        #00000040 0,
+        #00000040 6px,
+        transparent 4px,
+        transparent 15px
+      )
+      1;
+  }
 }
