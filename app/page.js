@@ -6,11 +6,11 @@ export default function Home() {
   return (
     <>
       <ImageIcon
-      iconName="mainBanner"
-      className="h-[119px] md:h-[350px] w-full"
+        iconName="mainBanner"
+        className="h-[119px] md:h-[350px] w-full"
       />
-      <Homepage/>
-      <Distinctions/>
+      <Homepage />
+      <Distinctions />
     </>
   );
 }

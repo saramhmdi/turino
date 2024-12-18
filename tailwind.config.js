@@ -16,8 +16,10 @@ module.exports = {
       fontFamily: {
         yekanBakh: ["var(--font-yekan-bakh)", "sans-serif"],
         vazirFd: ["var(--font-vazir-fd)", "sans-serif"],
+        vazirmatnMedium: ["var(--font-vazirmatn-medium)", "sans-serif"],
+        vazirmatnBold: ["var(--font-vazirmatn-bold)", "sans-serif"],
+        iranSans :  ["var(--font-iran-sans)", "sans-serif"],
       },
-      
     },
   },
   plugins: [],

@@ -16,7 +16,7 @@ function ContactBanner() {
           </p>
         </div>
         <ImageIcon
-          iconName={"professional-cartoon-man-talking-phone"}
+          iconName={"professional-cartoon-man-talking-phone-cropped"}
           className="absolute bottom-0 left-0 h-[138px] w-[175px]  sm:h-[158px] sm:w-[195px] md:-w-[308px] md:[225px]  bg-cover "
         />
       </div>

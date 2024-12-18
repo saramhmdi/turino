@@ -8,7 +8,7 @@ function NotConnection() {
         iconName="serverError"
         className="w-[322px] h-[322px] lg:w-[555px] lg:h-[555px]"
       />
-      <div className="flex flex-col  justify-center lg:space-y-14 ">
+      <div className="flex flex-col  items-center lg:space-y-14 ">
         <p className="font-primary text-text  mb-4 text-3xl lg:text-4xl	">
           اتصال با سرور برقرار نیست!
         </p>

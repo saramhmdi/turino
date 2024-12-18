@@ -4,14 +4,60 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const yekanBakh = localFont({
-  src: "./fonts/YekanBakh-Regular.ttf",
+  src: [
+    {
+      path: "./fonts/YekanBakh-Regular.ttf",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
   variable: "--font-yekan-bakh",
-  weight: "100 900",
 });
+
+
 const vazirFD = localFont({
-  src: "./fonts/VazirFD.ttf",
+  src: [
+    {
+      path: "./fonts/VazirFD.ttf",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   variable: "--font-vazir-fd",
-  weight: "400 700",
+});
+
+
+const vazirmatnMedium = localFont({
+  src: [
+    {
+      path: "./fonts/Vazirmatn-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-vazirmatn-medium",
+});
+
+const vazirmatnBold = localFont({
+  src: [
+    {
+      path: "./fonts/Vazirmatn-Bold.ttf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-vazirmatn-bold",
+});
+
+const iranSans = localFont({
+  src: [
+    {
+      path: "./fonts/Iranian-Sans.ttf",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-iran-sans",
 });
 
 export const metadata = {
@@ -26,7 +72,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${yekanBakh.variable} ${vazirFD.variable}`}>
+      <body className={`${yekanBakh.variable} ${vazirFD.variable} ${vazirmatnMedium.variable} ${vazirmatnBold.variable} ${iranSans.variable}`}>
         {/* <TanstackQueryProvider> */}
         <LayoutPage>{children}</LayoutPage>
         {/* </TanstackQueryProvider> */}

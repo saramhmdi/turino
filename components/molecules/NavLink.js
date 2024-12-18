@@ -34,11 +34,11 @@ function NavMenu() {
       )}
 
       <nav
-        className={`fixed top-0 right-0 h-[calc(100%-1rem)] w-1.5/3 bg-background z-20 border rounded-xl m-2 transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-[120%]"
+        className={`fixed top-0 right-0 h-[calc(100%-1rem)]  bg-background z-20 border rounded-xl m-2 transform transition-transform duration-300 ${
+          isOpen ? "translate-x-0 w-2/4 sm:w-1/4" : "translate-x-[120%]"
         } md:static md:translate-x-0 md:flex md:flex-row md:border-none lg:mr-12`}
       >
-        <ul className="flex flex-col md:flex-row text-base font-semibold">
+        <ul className="flex flex-col gap-4  md:flex-row text-base font-semibold  pt-5 px-3">
           <li>
             <Link
               href="/"
@@ -56,7 +56,7 @@ function NavMenu() {
               href="/services"
               className={`${
                 pathName === "/services" ? "text-primary" : "text-text"
-              } hover:text-primary items-center px-1 lg:px-4`}
+              } hover:text-primary flex items-center px-1 lg:px-4`}
               onClick={handleCloseMenu}
             >
               {isOpen && <AirplaneSquare />}

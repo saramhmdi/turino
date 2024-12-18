@@ -1,7 +1,7 @@
 import { e2p } from "@/core/utils/numbersChange";
 import Link from "next/link";
 import ImageIcon from "../atoms/icons/ImageIcon";
-import TurinoCustomerServicesLinks from "../molecules/TurinoCustomerServicesLinks";
+import TorinoCustomerServicesLinks from "../molecules/TorinoCustomerServicesLinks";
 
 function Footer() {
   const turinItems = [
@@ -23,8 +23,8 @@ function Footer() {
       </div>
       <div className="flex flex-col   gap-6 px-5 md:flex-row items-between  md:px-20">
         <div className="flex w-full justify-around md:justify-start md:gap-16">
-          <TurinoCustomerServicesLinks items={turinItems} title="تورینو" />
-          <TurinoCustomerServicesLinks
+          <TorinoCustomerServicesLinks items={turinItems} title="تورینو" />
+          <TorinoCustomerServicesLinks
             items={serviceItems}
             title="خدمات مشتریان"
           />
@@ -36,9 +36,7 @@ function Footer() {
             </Link>
             <p className="text-[#000000]  font-normal	text-sm	md:text-[15px]">
               تلفن پشتیبانی:
-              <span className="font-vazirFd">
-                {e2p("8574-021")}
-              </span>
+              <span className="font-vazirFd">{e2p("8574-021")}</span>
             </p>
           </div>
           <div>
