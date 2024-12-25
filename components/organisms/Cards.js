@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import Card from "./Card";
+import Card from "../molecules/Card";
 import { IoIosArrowDown } from "react-icons/io";
 
 function Cards({ tours }) {
@@ -32,7 +32,7 @@ function Cards({ tours }) {
 
   return (
     <>
-      <p className="text-xl font-bold mb-4">همه تورها</p>
+      <p className="text-xl font-bold mb-4 text-[#000000] ">همه تورها</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {visibleTours.map((tour) => (
           <Card key={tour.id} tour={tour} />

@@ -2,24 +2,12 @@ import Image from "../atoms/Picture";
 import Link from "next/link";
 import { sp } from "@/core/utils/numbersChange";
 
+import { translateFleetVehicle, persianDate } from "@/core/utils/helper";
+
 function Card({ tour }) {
   const { title, startDate, endDate, fleetVehicle, options, price, image, id } =
     tour;
-  const fleetVehicleMap = {
-    Bus: "اتوبوس",
-    Van: "ون",
-    SUV: "شاسی‌بلند",
-    Airplane: "هواپیما",
-  };
-  function translateFleetVehicle(fleetVehicle) {
-    return fleetVehicleMap[fleetVehicle] || "نامشخص";
-  }
-  const persianStartDate = new Date(startDate).toLocaleDateString("fa-IR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-  console.log(persianStartDate);
+
   const start = new Date(startDate);
   const end = new Date(endDate);
   const durationInDays = Math.round((end - start) / (1000 * 60 * 60 * 24));
@@ -33,7 +21,7 @@ function Card({ tour }) {
       >
         <h3 className=" text-[22px] text-[#000000] p-2">{title}</h3>
         <p className=" inline-block overflow-hidden text-ellipsis whitespace-nowrap  max-w-[80%] text-text text-[15px] p-2">
-          <span>{persianStartDate.split(" ")[1]} ماه.</span>
+          <span>{persianDate(startDate).split(" ")[1]} ماه.</span>
           <span>{durationInDays} روزه-</span>
           <span>{translateFleetVehicle(fleetVehicle)}</span>
           {options.map((option) => (

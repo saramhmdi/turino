@@ -14,8 +14,8 @@ const useGetAllTours = (destinationId, originId, startDate, endDate) => {
 };
 
 const useGetTour = (id) => {
-  const queryFn = api.get(`tour/${id}`);
-  const queryKey = ["tourId"];
+  const queryFn = ()=>api.get(`tour/${id}`);
+  const queryKey = ["tourId" ,id];
   return useQuery({ queryFn, queryKey });
 };
 

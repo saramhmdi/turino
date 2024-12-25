@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import { useGetAllTours } from "@/core/services/queries";
-import Cards from "../molecules/Cards";
+import Cards from "../organisms/Cards";
 import ContactBanner from "../organisms/ContactBanner";
 import Filters from "../organisms/Filters";
 import WhyUs from "./WhyUs";

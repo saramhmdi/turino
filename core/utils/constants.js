@@ -185,5 +185,11 @@ const locations = [
     persianName: "شهرکرد",
   },
 ];
-
-export { locations };
+const fleetVehicleMap = {
+  Bus: "اتوبوس",
+  Van: "ون",
+  SUV: "شاسی‌بلند",
+  Airplane: "هواپیما",
+  Ship: "کشتی"
+};
+export { locations ,fleetVehicleMap };
