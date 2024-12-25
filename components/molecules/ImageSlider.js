@@ -34,7 +34,8 @@ const ImageSlider = () => {
           rotate: 0,
           slideShadows: true,
         }}
-        className="w-[160px] h-[208px] sm:w-[255px] sm:h-[284px] xl:w-[379px] xl:h-[479px]"
+        //   className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[479px] mx-auto"
+        className="w-[160px] h-[208px] sm:w-[255px] sm:h-[284px] xl:w-[310px] xl:h-[379px]"
         onSlideChange={handleSlideChange}
         onSwiper={handleSwiper}
       >

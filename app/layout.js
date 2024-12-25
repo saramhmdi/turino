@@ -14,7 +14,6 @@ const yekanBakh = localFont({
   variable: "--font-yekan-bakh",
 });
 
-
 const vazirFD = localFont({
   src: [
     {
@@ -25,7 +24,6 @@ const vazirFD = localFont({
   ],
   variable: "--font-vazir-fd",
 });
-
 
 const vazirmatnMedium = localFont({
   src: [
@@ -72,10 +70,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${yekanBakh.variable} ${vazirFD.variable} ${vazirmatnMedium.variable} ${vazirmatnBold.variable} ${iranSans.variable}`}>
-        {/* <TanstackQueryProvider> */}
-        <LayoutPage>{children}</LayoutPage>
-        {/* </TanstackQueryProvider> */}
+      <body
+        className={`${yekanBakh.variable} ${vazirFD.variable} ${vazirmatnMedium.variable} ${vazirmatnBold.variable} ${iranSans.variable}`}
+      >
+        <TanstackQueryProvider>
+          <LayoutPage>{children}</LayoutPage>
+        </TanstackQueryProvider>
       </body>
     </html>
   );

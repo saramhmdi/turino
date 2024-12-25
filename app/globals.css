@@ -6,7 +6,7 @@
   --background: #ffffff;
   --primary: #28a745;
   --text-color: #282828;
-  --complementry: #009eca;
+  --complementary: #009eca;
   /* --text-color: #595959; */
 }
 
@@ -43,6 +43,16 @@ body {
   }
 }
 
-.clip-polygon {
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0 76%, 0% 25%);
+
+input::placeholder {
+  color: #2C2C2C;
 }
+
+
+.green {
+  border: none !important;
+  width: 100% !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+

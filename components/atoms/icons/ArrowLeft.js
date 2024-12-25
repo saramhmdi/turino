@@ -1,6 +1,6 @@
 import React from "react";
 
-function ArrowLeft({ color , size}) {
+function ArrowLeft({ color, size }) {
   return (
     <svg
       width="36"
@@ -12,21 +12,21 @@ function ArrowLeft({ color , size}) {
       <path
         d="M14.355 8.89502L5.25 18L14.355 27.105"
         stroke={color}
-        stroke-opacity="2"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeOpacity="2"
+        strokwidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         opacity="0.4"
         d="M30.75 18H5.505"
         stroke="#10411B"
-        stroke-opacity="0.5"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeOpacity="0.5"
+        strokwidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

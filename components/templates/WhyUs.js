@@ -4,7 +4,7 @@ import ImageSlider from "../molecules/ImageSlider";
 
 function WhyUs() {
   return (
-    <article className="flex flex-col    w-full h-[320px] md:h-[400px] lg:[676px] lg:flex-row lg:justify-center lg:items-center  mt-10 lg:mt-56  mb-0">
+    <article className="flex flex-col w-full h-[350px] sm:h-[420px] lg:[450px] lg:flex-row lg:justify-center lg:items-center  mt-10 lg:mt-28 gap-4  mb-5 ">
       <div className="max-w-[501px]">
         <div className="flex items-center gap-2 mb-7 lg:mb-0">
           <ImageIcon
@@ -15,7 +15,7 @@ function WhyUs() {
             iconName="question-responsive"
             className=" font-black  w-[34px] h-[38px]  lg:hidden "
           />
-          <h2 className="font-vazirmatnBold text-text text-[20px] md:text-[36px]">
+          <h2 className="font-vazirmatnBold text-text sm:text-[20px] md:text-[36px]">
             چرا <span className="text-primary ">تورینو</span>؟
           </h2>
         </div>

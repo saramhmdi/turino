@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { useSearchParams } from "next/navigation";
 import { useGetAllTours } from "@/core/services/queries";
 import Cards from "../molecules/Cards";
@@ -9,7 +9,7 @@ import NotConnection from "./NotConnection";
 import NotResult from "./NotResult";
 import Loading from "../atoms/Loading";
 
-function Homepage() {
+function ToursPage() {
   const searchParams = useSearchParams(); 
   const origin = searchParams.get("origin");
   const destination = searchParams.get("destination");
@@ -35,5 +35,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
-
+export default ToursPage;
