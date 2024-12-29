@@ -2,6 +2,7 @@ import NavMenu from "../molecules/NavLink";
 import LoginButton from "../molecules/LoginButton";
 import ImageIcon from "../atoms/icons/ImageIcon";
 import Link from "next/link";
+import AuthButton from "./authForm/AuthButton";
 
 function  Header() {
   return (
@@ -12,7 +13,7 @@ function  Header() {
         </Link>
         <NavMenu />
       </div>
-      <LoginButton />
+      <AuthButton reservation={false}/>
     </div>
   );
 }

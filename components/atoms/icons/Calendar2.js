@@ -1,8 +1,9 @@
 import React from "react";
 
-function calendar2() {
+function calendar2({className}) {
   return (
     <svg
+    className={className}
       width="20"
       height="20"
       viewBox="0 0 20 20"

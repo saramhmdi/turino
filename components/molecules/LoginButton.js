@@ -1,32 +1,16 @@
 "use client";
-import { useState } from "react";
 
-import Profile from "../atoms/icons/Profile";
-import SignInButton from "../atoms/icons/SignInButton";
-
+import { FaUser } from "react-icons/fa6";
 function LoginButton() {
-  const [isShowModal, setIsShowModal] = useState(false);
-
-  const showModal = () => {
-    setIsShowModal(true);
-  };
-
   return (
     <>
-      {/* Mobile view button */}
-      <button className="block md:hidden" onClick={showModal}>
-        <SignInButton className="w-[40px] h-[40px]" />
-      </button>
-
-      {/* Desktop view button  */}
-      <button
-        onClick={showModal}
+      <div
         className="hidden md:flex px-2 py-1.5  text-primary rounded-lg border-2 border-primary border-solid  "
         aria-label="Login or register"
       >
-        <Profile />
+        <FaUser className="text-primary w-[24px]" />
         <p className="text-base	 font-medium	">ورود | ثبت نام</p>
-      </button>
+      </div>
     </>
   );
 }

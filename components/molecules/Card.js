@@ -5,7 +5,7 @@ import { sp } from "@/core/utils/numbersChange";
 import { translateFleetVehicle, persianDate } from "@/core/utils/helper";
 
 function Card({ tour }) {
-  const { title, startDate, endDate, fleetVehicle, options, price, image, id } =
+  const { title, startDate, endDate, fleetVehicle, options, price, image ,id} =
     tour;
 
   const start = new Date(startDate);
@@ -13,7 +13,7 @@ function Card({ tour }) {
   const durationInDays = Math.round((end - start) / (1000 * 60 * 60 * 24));
 
   return (
-    <Link href={`/${id}`} className="flex flex-col justify-between">
+    <div href={`/${id}`} className="flex flex-col justify-between">
       <Image path={image} title={title} className="w-full" />
       <div
         className="font-normal border rounded-b-[10px]  w-full "
@@ -31,16 +31,19 @@ function Card({ tour }) {
         <hr className=" border-t border-[#D9D9D9]  w-full" />
 
         <div className="flex justify-between p-2">
-          <button className="bg-primary text-background text-[15px] w-[99px] md:3-[64px] border-none  rounded-[4px] ">
-            <Link href="#">رزرو</Link>
-          </button>
+          <Link
+            href={`/${id}`}
+            className="bg-primary text-background text-[15px] w-[99px] md:w-[64px] border-none rounded-[4px] flex items-center justify-center"
+          >
+            رزرو
+          </Link>
           <p className="font-vazirFd font-normal	text-[12px] text-complementary">
             {sp(price)}
             <span className="text-text">تومان</span>
           </p>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

@@ -1,6 +1,8 @@
-function Volume() {
+function Volume({className}) {
   return (
     <svg
+    className={className}
+
       width="16"
       height="16"
       viewBox="0 0 16 17"

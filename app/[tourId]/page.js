@@ -12,8 +12,8 @@ import persian from "react-date-object/calendars/persian";
 function DetailsTour() {
   const params = useParams();
   const { tourId } = params;
-  const { data, isLoading, error } = useGetTour(tourId);
-  if (isLoading) return <Loading />;
+  const { data, isPending, error } = useGetTour(tourId);
+  if (isPending) return <Loading />;
   if (error) return <NotConnection />;
   if (data?.data?.length === 0) return <NotResult />;
   console.log(data);

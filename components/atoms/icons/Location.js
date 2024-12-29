@@ -1,8 +1,10 @@
 import React from "react";
 
-function Location() {
+function Location({className}) {
   return (
     <svg
+    className={className}
+
       width="21"
       height="21"
       viewBox="0 0 21 21"

@@ -1,6 +1,7 @@
 import LayoutPage from "@/components/templates/LayoutPage";
 import TanstackQueryProvider from "@/provider/TanstackQueryProvider";
 import localFont from "next/font/local";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const yekanBakh = localFont({
@@ -74,8 +75,9 @@ export default function RootLayout({ children }) {
         className={`${yekanBakh.variable} ${vazirFD.variable} ${vazirmatnMedium.variable} ${vazirmatnBold.variable} ${iranSans.variable}`}
       >
         <TanstackQueryProvider>
-          <LayoutPage>{children}</LayoutPage>
+            <LayoutPage>{children}</LayoutPage>
         </TanstackQueryProvider>
+        <Toaster   />
       </body>
     </html>
   );

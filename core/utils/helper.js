@@ -4,6 +4,7 @@ import { TbCarSuv } from "react-icons/tb";
 import { PiVanFill } from "react-icons/pi";
 import Bus from "../../components/atoms/icons/Bus";
 import { LuShip } from "react-icons/lu";
+import { e2p } from "./numbersChange";
 
 function locationToPersian(englishName) {
   if (!englishName) return;
@@ -44,6 +45,19 @@ const persianDate = (date) =>
     month: "long",
     year: "numeric",
   });
+
+const calculateDayNight=(startDate=0 , endDate )=>{
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  const totalDays = (end - start) / (1000 * 60 * 60 * 24);
+  const nights = e2p(Math.floor(totalDays));
+  const days = e2p(totalDays % 1 === 0 ? nights : nights + 1);
+  const totalHours = e2p(Math.floor((end - start) / (1000 * 60 * 60)));
+
+return {
+  days,nights,totalHours
+}
+}
 export {
   locationToPersian,
   convertToIsoString,
@@ -51,4 +65,5 @@ export {
   translateFleetVehicle,
   getVehicleIcon,
   persianDate,
+  calculateDayNight,flattenObject
 };
