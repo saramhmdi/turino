@@ -1,47 +1,78 @@
 "use client";
 
-import { personalInformationSchema } from "@/core/utils/schema";
-import React, { useEffect } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import InputGroup from "../atoms/InputGroup";
-import DatePicker from "react-multi-date-picker";
+import React from "react";
+import AddCancelButton from "../atoms/AddCancelButton";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
-import persian from "react-date-object/calendars/persian";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { personalInformationSchema } from "@/core/utils/schema";
+import { useUpdateProfile } from "@/core/services/mutations";
+import toast from "react-hot-toast";
+import InputGroup from "../atoms/InputGroup";
+import DatePicker from "react-multi-date-picker";
 import persian_fa from "react-date-object/locales/persian_fa";
-import gregorian from "react-date-object/calendars/gregorian";
-import "react-multi-date-picker/styles/colors/green.css";
+import persian from "react-date-object/calendars/persian";
 
+import gregorian from "react-date-object/calendars/gregorian";
 const weekDays = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
-function PersonalInformationForm({ formData, setFormData, title }) {
+
+function EditPersonalInformation({
+  personalInformation
+
+}) {
+  const { mutate, isPending } = useUpdateProfile();
+const { fullName, gender,
+  birthDate,
+  nationalCode,
+  showEdit} = personalInformation
   const {
     register,
     control,
     setValue,
-    watch,
+    handleSubmit,
     trigger,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(personalInformationSchema),
     defaultValues: {
-      fullName: formData?.fullName || "",
-      gender: formData?.gender || "",
-      birthDate: formData?.birthDate || "",
-      nationalCode: formData?.nationalCode || "",
+      fullName: fullName || "",
+      gender: gender || "",
+      birthDate: birthDate || "",
+      nationalCode: nationalCode || "",
     },
   });
 
-  useEffect(() => {
-    const subscription = watch((value) => {
-      setFormData(value);
-    });
-    return () => subscription.unsubscribe();
-  }, [watch]);
+  const submitHandler = async (data) => {
+    const isValid = await trigger();
+    if (!isValid) return;
+
+    mutate(
+      { data},
+      // { ...personalInformation ,{fullName:data.fullName ,gender: }},
+      {
+        onSuccess: (response) => {
+          toast.success(
+            response?.data?.message || "اطلاعات با موفقیت به‌روزرسانی شد."
+          );
+         showEdit(false)
+
+        },
+        onError: () => {
+          toast.error("متأسفانه خطایی رخ داد.");
+        },
+      }
+    );
+  };
 
   return (
-    <div className="border md:h-[230px] rounded-[10px] md:w-[65%] w-full pb-5 border-[#00000080] bg-background mt-4 p-5">
-      <p>{title}</p>
+    <div className="border border-[#00000033] rounded-[10px] p-5 ">
+  <p className="text-lg font-semibold mb-4 ">اطلاعات شخصی</p>
+    <form
+    onSubmit={handleSubmit(submitHandler)}
+    className="flex flex-col  md:justify-between text-xs text-[#000000] md:text-sm md:gap-20"
+  >
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         <InputGroup
           label="نام و نام خانوادگی"
@@ -118,16 +149,22 @@ function PersonalInformationForm({ formData, setFormData, title }) {
             className="text-[14px] w-full   border rounded-[5px] p-2  border-[#00000080] "
           >
             <option value="">جنسیت</option>
-            <option value="male">مرد</option>
-            <option value="female">زن</option>
+            <option value="1">مرد</option>
+            <option value="2">زن</option>
           </select>
           <p className="text-red-500 text-sm mt-2 italic">
             {errors.gender?.message}
           </p>
         </div>
       </div>
+        <AddCancelButton showEdit={showEdit} />
+
+    </form>
+
     </div>
+  
+
   );
 }
 
-export default PersonalInformationForm;
+export default EditPersonalInformation;

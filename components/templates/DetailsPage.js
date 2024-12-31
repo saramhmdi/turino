@@ -18,8 +18,7 @@ import {
 } from "../../core/utils/helper";
 import { sp } from "@/core/utils/numbersChange";
 
-import Link from "next/link";
-import AuthButton from "../organisms/authForm/AuthButton";
+import AuthButton from "../organisms/AuthButton";
 function DetailsPage({ data }) {
   const {
     insurance,

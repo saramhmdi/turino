@@ -1,5 +1,4 @@
 "use client";
-
 import { FaUser } from "react-icons/fa6";
 function LoginButton() {
   return (
@@ -11,6 +10,7 @@ function LoginButton() {
         <FaUser className="text-primary w-[24px]" />
         <p className="text-base	 font-medium	">ورود | ثبت نام</p>
       </div>
+      
     </>
   );
 }

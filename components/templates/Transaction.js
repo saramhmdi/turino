@@ -1,5 +1,5 @@
-
-import { calculateDayNight } from "@/core/utils/helper";
+import { calculateDayNight, shortenCode } from "@/core/utils/helper";
+import { sp } from "@/core/utils/numbersChange";
 
 function Transaction({ data }) {
   if (!data?.length) {
@@ -10,36 +10,35 @@ function Transaction({ data }) {
     );
   }
   return (
-    <div className="overflow-x-auto">
-      <table className="border-collapse border rounded-[10px] w-full border-[#00000033]">
-        <thead className="bg:[#DBDBDB] md:bg-[#F3F3F3] text-[12px] md:text-[16px] font-normal md:text-text md:text-[#000000]">
-          <tr className="text-right text-sm">
-            <th className="p-3 border-b border-[#00000033]">تاریخ و ساعت</th>
-            <th className="p-3 border-b border-[#00000033]">مبلغ (تومان)</th>
-            <th className="p-3 border-b border-[#00000033]">نوع تراکنش</th>
-            <th className="p-3 border-b border-[#00000033]">شماره سفارش</th>
+    <div className="border border-[#00000033] rounded-[10px] overflow-hidden text-center mb-20">
+      <table className="border-collapse w-full">
+        <thead className="bg-[#DBDBDB] md:bg-[#F3F3F3]  text-[12px] md:text-[16px] font-normal">
+          <tr>
+            <th className="p-3 text-center align-middle">تاریخ و ساعت</th>
+            <th className="p-3 text-center align-middle">مبلغ (تومان)</th>
+            <th className="hidden md:inline-block p-3 text-center align-middle">
+              نوع تراکنش
+            </th>
+            <th className="p-3 text-center align-middle">شماره سفارش</th>
           </tr>
         </thead>
-        <tbody className="font-vazirFd font-light text-[13px] pt-3">
-          {data.map((transaction, index) => {
-            const { days, nights } = calculateDayNight(
-              transaction.createdAt,
-              transaction.createdAt
-            );
+        <tbody className="font-vazirFd font-light w-full text-[13px]">
+          {data.map((transaction) => {
+   
 
             return (
               <tr key={transaction.id}>
-                <td className="p-3">
-                  <div>
-                    {new Date(transaction.createdAt).toLocaleString("fa-IR")}
-                  </div>
+                <td className="p-3 text-center align-middle ">
+                {`${new Date(transaction.createdAt).toLocaleDateString("fa-IR")} - ${new Date(transaction.createdAt).toLocaleTimeString("fa-IR")}`}
                 </td>
-                <td className="p-3">
-                  {transaction.amount.toLocaleString("fa-IR")}
+                <td className="p-3 text-center align-middle">
+                  {sp(transaction.amount)}
                 </td>
-                <td className="p-3 hidden md:inline">خرید</td>
-                <td className="p-3">
-                  سفارش {`${transaction.id.slice(0, 4)}...`}
+                <td className="p-3 text-center align-middle hidden md:table-cell">
+                  خرید
+                </td>
+                <td className="p-3 text-center align-middle">
+                  سفارش {shortenCode(transaction.id)}
                 </td>
               </tr>
             );

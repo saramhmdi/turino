@@ -1,7 +1,7 @@
 import React from "react";
 
 function ModalContainer({ children, isOpen }) {
-  if (!isOpen) return;
+  if (!isOpen) return null;
 
   return (
     <div className="fixed top-0 right-0 w-svw h-svh bg-black/20 z-10 backdrop-blur-sm">

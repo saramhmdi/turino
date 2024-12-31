@@ -4,10 +4,9 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 import { useSendOtp } from "@/core/services/mutations";
-import { isValidMobile } from "@/core/utils/validation";
-import { IoMdArrowBack } from "react-icons/io";
+import { IoIosClose } from "react-icons/io";
 
-function SendOTPForm({ mobile, setMobile, setStep }) {
+function SendOTPForm({ mobile, setMobile, setStep, handleCloseModal }) {
   const [error, setError] = useState("");
 
   const { isPending, mutate } = useSendOtp();
@@ -39,21 +38,29 @@ function SendOTPForm({ mobile, setMobile, setStep }) {
   };
 
   return (
-    <div className="flex flex-col w-[358px] h-[362px] bg-white rounded-[20px] shadow-[0_4px_4px_-0px_rgba(0,0,0,0.25)] p-6">
-      <h4 className="text-xl font-bold text-center">ورود به تورینو</h4>
+    <div className="relative flex flex-col min-w-[300px] min-h-[362px] sm:min-w-[358px] sm:min-h-[362px]  bg-white rounded-[20px] pt-16 shadow-[0_4px_4px_-0px_rgba(0,0,0,0.25)] p-8">
+      <button
+        onClick={() => handleCloseModal()}
+        className="absolute top-4 left-4 text-gray-500 hover:text-gray-700"
+        aria-label="بستن"
+      >
+        <IoIosClose size={24} />
+      </button>
+      <h4 className="text-xl font-bold text-center ">ورود به تورینو</h4>
       <form
-        className="flex flex-col justify-end gap-10 flex-1"
+        className="flex flex-col justify-end gap-5 flex-1"
         onSubmit={sendOtpHandler}
       >
         <label>شماره موبایل خود را وارد کنید</label>
         <input
           type="text"
           placeholder="۴۲۵۳***۰۹۱۲"
-          className="h-11 rounded-md border border-[#00000037]"
+          className="h-11 rounded-md border border-[#00000037] text-left p-2"
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
         />
-        {!!error && <p className="text-red-500">{error}</p>}
+        <p className="text-red-500">{error && error}</p>
+
         <button
           className="bg-[#28A745] h-11 text-white rounded-md"
           type="submit"

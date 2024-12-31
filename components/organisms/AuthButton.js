@@ -1,38 +1,11 @@
-// "use client";
-
-// import { useState } from "react";
-// import { useGetUserData } from "@/core/services/queries";
-// import ProfileButton from "@/components/molecules/ProfileButton";
-// import LoginButton from "../../molecules/LoginButton";
-
-// function AuthForm() {
-//   const [mobile, setMobile] = useState("");
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const { data } = useGetUserData();
-
-// console.log(data)
-//   if (data?.data) return <ProfileButton/>
-
-//   return (
-//     <div>
-//       <LoginButton onClick={() => setIsOpen(true)}/>
-// {/* <AuthForm mobile={mobile} setMobile={setMobile} setIsOpen={setIsOpen} /> */}
-//     </div>
-//   );
-// }
-
-// export default AuthForm;
-
 "use client";
 
 import { useState } from "react";
-import SendOTPForm from "./SendOTPForm";
-import CheckOTPForm from "./CheckOTPForm";
-import ModalContainer from "../../atoms/ModalContainer";
+import SendOTPForm from "../molecules/SendOTPForm";
+import CheckOTPForm from "../molecules/CheckOTPForm";
+import ModalContainer from "../atoms/ModalContainer";
 import { useGetUserData } from "@/core/services/queries";
-import ProfileButton from "@/components/molecules/ProfileButton";
-import Link from "next/link";
+import ProfileButton from "@/components/atoms/icons/ProfileButton";
 import ReserveButton from "@/components/atoms/ReserveButton";
 import LoginButton from "@/components/molecules/LoginButton";
 
@@ -49,6 +22,10 @@ function AuthForm({ reservation, id }) {
   if (data?.data && !reservation)
     return <ProfileButton mobile={data?.data.mobile} />;
 
+    const handleCloseModal = () => {
+    setIsOpen(false);
+    setMobile(""); 
+  };
   return (
     <div>
       <button onClick={() => setIsOpen(true)}>
@@ -65,6 +42,8 @@ function AuthForm({ reservation, id }) {
             mobile={mobile}
             setMobile={setMobile}
             setStep={setStep}
+            setIsOpen={setIsOpen}
+            handleCloseModal={handleCloseModal}
           />
         </ModalContainer>
       )}
@@ -73,7 +52,6 @@ function AuthForm({ reservation, id }) {
           <CheckOTPForm
             mobile={mobile}
             setStep={setStep}
-            setIsOpen={setIsOpen}
           />
         </ModalContainer>
       )}

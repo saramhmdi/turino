@@ -14,8 +14,8 @@ const useGetAllTours = (destinationId, originId, startDate, endDate) => {
 };
 
 const useGetTour = (id) => {
-  const queryFn = ()=>api.get(`tour/${id}`);
-  const queryKey = ["tourId" ,id];
+  const queryFn = () => api.get(`tour/${id}`);
+  const queryKey = ["tourId", id];
   return useQuery({ queryFn, queryKey });
 };
 const useGetUserData = () => {
@@ -50,4 +50,12 @@ const useGetProfile = () => {
 
   return useQuery({ queryFn, queryKey });
 };
-export { useGetAllTours, useGetTour,useGetUserData,useGetUserTours ,useGetBasket,useGetTransactions , useGetProfile};
+export {
+  useGetAllTours,
+  useGetTour,
+  useGetUserData,
+  useGetUserTours,
+  useGetBasket,
+  useGetTransactions,
+  useGetProfile,
+};

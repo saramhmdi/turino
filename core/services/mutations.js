@@ -23,7 +23,7 @@ const useCheckOtp = () => {
   return useMutation({ mutationFn, onSuccess });
 };
 
-const useUpdateBankAccount = () => {
+const useUpdateProfile = () => {
   const queryClient = useQueryClient();
 
   const mutationFn = (data) => api.put("user/profile", data);
@@ -52,17 +52,6 @@ const useCheckout = () => {
   return useMutation({ mutationFn, onSuccess });
 };
 
-// const useProfile = () => {
-//   const queryClient = useQueryClient();
-
-//   const mutationFn = (data) => api.post("order", data);
-
-//   const onSuccess = () => {
-//     queryClient.invalidateQueries({ queryKey: ["user/tours"] });
-//   };
-
-//   return useMutation({ mutationFn, onSuccess });
-// };
 
 
-export { useSendOtp, useCheckOtp, useUpdateBankAccount,useCheckout,useAddToBasket };
+export { useSendOtp, useCheckOtp, useUpdateProfile,useCheckout,useAddToBasket };
