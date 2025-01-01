@@ -4,9 +4,7 @@ function ShowInformation({
   title,
   data,
   containerClass = "",
-  titleClass = "",
   showAdd,
-  dataClass = "",
   clickHandler,
 }) {
   return (
@@ -26,7 +24,7 @@ function ShowInformation({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {data.map((item, index) => (
             <div key={index} className="flex">
-              <span className={`text-sm text-gray-500 `}>{item.label}:</span>
+              <span className={`text-sm text-gray-500 pl-5`}>{item.label}:</span>
               <span className="text-base font-medium text-gray-800 ml-2">
                 {item.data}
               </span>

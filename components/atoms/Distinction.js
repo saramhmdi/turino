@@ -1,4 +1,3 @@
-import React from "react";
 import ImageIcon from "./icons/ImageIcon";
 
 function Distinction({ iconName, title, description }) {

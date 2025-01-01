@@ -26,10 +26,9 @@ function EditEmail({ email, mobile, setShowEditEmail }) {
     if (isPending) return;
 
     mutate(
-      { data },
+      data,
       {
         onSuccess: (response) => {
-          console.log(response);
           setShowEditEmail(false);
           toast.success(
             response?.data?.message || "ایمیل با موفقیت به‌روزرسانی شد."
@@ -43,18 +42,18 @@ function EditEmail({ email, mobile, setShowEditEmail }) {
   };
 
   return (
-    <div className="border border-[#00000033] rounded-[10px] p-5 ">
-      <p className="text-lg font-semibold mb-4 ">اطلاعات حساب کاربری</p>
+    <div className="border border-[#00000033] rounded-[10px] p-5">
+      <p className="text-lg font-semibold mb-4">اطلاعات حساب کاربری</p>
       <form
         onSubmit={handleSubmit(submitHandler)}
         className="flex flex-col md:flex-row md:justify-between text-xs text-[#000000] md:text-sm md:gap-16"
       >
         <div className="flex items-center gap-2 mb-4 md:mb-0">
           <span className="text-sm text-gray-500">شماره موبایل:</span>
-          <span className="text-base font-medium text-gray-800">{mobile}</span>
+          <span className="text-base font-medium text-gray-800">e2p({mobile})</span>
         </div>
 
-        <div className="flex flex-1 mb-4 md:mb-0 gap-3 ">
+        <div className="flex flex-1 mb-4 md:mb-0 gap-3">
           <InputGroup
             name="email"
             label="ایمیل"

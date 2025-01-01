@@ -1,23 +1,28 @@
-"use client";
-import { useGetUserData } from "@/core/services/queries";
-import { e2p } from "@/core/utils/numbersChange";
-import React, { useState } from "react";
-import PersonalInformationForm from "../molecules/PersonalInformationForm";
-import EditBankAccount from "../organisms/EditBankAccount";
-import EditEmail from "../organisms/EditEmail";
-import EditPersonalInformation from "../organisms/EditPersonalInformation";
-import ShowInformation from "../organisms/ShowInformation";
 
+"use client";
+
+import { useGetUserData } from "@/core/services/queries";
+import React, { useState } from "react";
+import EditEmail from "../organisms/EditEmail";
+import EditBankAccount from "../organisms/EditBankAccount";
+import ShowInformation from "../organisms/ShowInformation";
+import EditPersonalInformation from "../organisms/EditPersonalInformation";
+import { e2p } from "@/core/utils/numbersChange";
 function ProfilePage() {
   const [showEditEmail, setShowEditEmail] = useState(false);
-  const [showPersonalInfoEdit, setShowPersonalInfoEdit] = useState(false);
   const [showBankInfoEdit, setShowBankInfoEdit] = useState(false);
+  const [showPersonalInfoEdit, setShowPersonalInfoEdit] = useState(false);
 
   const { data, isPending } = useGetUserData();
+  const translateGender = (gender) => {
+    if (gender === "male") return "مرد";
+    if (gender === "female") return "زن";
+    return "-"; 
+  };
   if (isPending) return <p>Loading...</p>;
-  console.log(data)
-  const { mobile, payment } = data?.data
-  const {email , fullName, gender, nationalCode, birthDate}= data?.data?.data
+
+  const { mobile, email ,shaba_code ,debitCard_code ,accountIdentifier   } = data?.data;
+  const { fullName, gender, nationalCode, birthDate  } = data?.data?.data;
 
   return (
     <div className="space-y-6">
@@ -34,43 +39,48 @@ function ProfilePage() {
       ) : (
         <EditEmail mobile={mobile} email={email} setShowEditEmail={setShowEditEmail} />
       )}
-
-      {!showPersonalInfoEdit ? (
+      
+  {!showPersonalInfoEdit ? (
         <ShowInformation
           title="اطلاعات شخصی"
           data={[
-            {
-              label: "نام و نام خانوادگی",
-              data: `${fullName || ""}`.trim() || "-",
-            },
-            { label: "جنسیت", data: gender || "-" },
-            { label: "کدملی", data: nationalCode || "-" },
-            { label: "تاریخ تولد", data: birthDate || "-" },
+            { label: "نام و نام خانوادگی", data: `${fullName || ""}`.trim() || "-" },
+            { label: "جنسیت", data: translateGender(gender) || "-" },
+            { label: "کدملی", data: e2p(nationalCode) || "-" },
+            { label: "تاریخ تولد", data: birthDate|| "-" },
           ]}
+        
           clickHandler={() => setShowPersonalInfoEdit(true)}
-          showAdd={!!(fullName|| gender || nationalCode || birthDate)}
+          showAdd={!!(fullName || gender || nationalCode || birthDate)}
         />
       ) : (
-        <EditPersonalInformation personalInformation={data?.data?.data} showEdit={setShowPersonalInfoEdit}/>
+        <EditPersonalInformation
+          personalInformation={{ fullName, gender, nationalCode, birthDate }} // باید داده‌ها را ارسال کنید
+          showEdit={setShowPersonalInfoEdit}
+        />
       )}
 
       {!showBankInfoEdit ? (
         <ShowInformation
           title="اطلاعات حساب بانکی"
           data={[
-            { label: "شماره شبا", data: payment?.shaba_code || "-" },
-            { label: "شماره حساب", data: payment?.debitCard_code || "-" },
-            { label: "شماره کارت", data: payment?.accountIdentifier || "-" },
+            { label: "شماره شبا", data: shaba_code || "-" },
+            { label: "شماره حساب", data: debitCard_code || "-" },
+            { label: "شماره کارت", data: accountIdentifier || "-" },
           ]}
           clickHandler={() => setShowBankInfoEdit(true)}
-          showAdd={!!(payment?.shaba_code || payment?.debitCard_code || payment?.accountIdentifier)}
+          showAdd={!!(shaba_code || debitCard_code || accountIdentifier)}
         />
       ) : (
-        <EditBankAccount shaba_code={payment?.shaba_code} debitCard_code={payment?.debitCard_code} accountIdentifier={payment?.accountIdentifier} showEdit={setShowBankInfoEdit}/>
+        <EditBankAccount
+          shaba_code={shaba_code}
+          debitCard_code={debitCard_code}
+          accountIdentifier={accountIdentifier}
+          showEdit={setShowBankInfoEdit}
+        />
       )}
     </div>
   );
 }
 
 export default ProfilePage;
-

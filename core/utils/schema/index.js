@@ -4,7 +4,7 @@ const bankAccountSchema = Yup.object({
   shaba_code: Yup.string()
     .trim()
     .required("شماره شبا الزامی است")
-    .length(16, "شماره شبا باید 24 عدد باشد"),
+    .length(24, "شماره شبا باید 24 عدد باشد"),
   debitCard_code: Yup.string()
     .trim()
     .length(16, "شماره کارت باید ۱۶ عدد باشد")
@@ -21,8 +21,7 @@ const personalInformationSchema = Yup.object({
     "نام و نام خانوادگی باید حداقل یک کاراکتر باشد"
   ),
   gender: Yup.string()
-    .oneOf(["male", "female"], "جنسیت باید مرد یا زن باشد")
-    .required("نام و نام خانوادگی الزامی است"),
+    .oneOf(["male", "female"], "جنسیت باید مرد یا زن باشد"),
   birthDate: Yup.string().required("تاریخ تولد الزامی است"),
   gender: Yup.string()
     .oneOf(["male", "female"], "جنسیت باید مرد یا زن باشد")
