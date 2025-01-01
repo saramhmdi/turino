@@ -14,7 +14,7 @@ function Card({ tour }) {
 
   return (
     <div href={`/${id}`} className="flex flex-col justify-between">
-      <Image path={image} title={title} className="w-full" />
+      <Image path={image} title={title} className="w-full" alt="image" />
       <div
         className="font-normal border rounded-b-[10px]  w-full "
         style={{ boxShadow: "0px 0px 2px 0px rgba(0, 0, 0, 0.25)" }}

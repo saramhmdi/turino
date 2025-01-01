@@ -4,7 +4,7 @@ function Picture({ path, title, className }) {
   return (
     <Image
       src={path}
-      alt={title}
+      alt="image"
       className={className}
       width={300}
       height={300}

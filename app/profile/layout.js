@@ -17,7 +17,7 @@ export default function ProfileLayout({ children }) {
   return (
     <AuthProvider>
       <div className="flex flex-col w-full md:justify-between md:flex-row p-5 md:px-20 gap-6">
-        <ul className="flex flex-row w-[20%]  md:flex-col md:h-full border-b md:border rounded-[10px] md:overflow-hidden">
+        <ul className="flex flex-row w-full md:w-[20%]  md:flex-col md:h-full border-b md:border rounded-[10px] md:overflow-hidden">
           <li className={`${isActive("/profile")}`}>
             <Link
               href="/profile"

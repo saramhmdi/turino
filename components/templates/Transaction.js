@@ -1,4 +1,4 @@
-import { calculateDayNight, shortenCode } from "@/core/utils/helper";
+import {  shortenCode } from "@/core/utils/helper";
 import { sp } from "@/core/utils/numbersChange";
 
 function Transaction({ data }) {

@@ -43,6 +43,7 @@ function DetailsPage({ data }) {
             path={image}
             title={title}
             className="w-full border-none rounded-[12px] lg:max-w-[397px] mb-5 "
+            alt="image"
           />
           <div className="flex flex-col flex-1 gap-8 lg:pr-5">
             <div className="pt-5 flex justify-between lg:flex-col">

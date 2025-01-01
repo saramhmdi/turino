@@ -67,13 +67,14 @@ const Filters = React.memo(({ tours }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const { origin, destination, startDate, endDate } = getValues();
-
+    const values = getValues();
     const params = new URLSearchParams(searchParams.toString());
-    if (origin) params.set("origin", origin.value);
-    if (destination) params.set("destination", destination.value);
-    if (startDate) params.set("startDate", p2e(startDate));
-    if (endDate) params.set("endDate", p2e(endDate));
+
+    Object.entries(values).forEach(([key, value]) => {
+      if (value) {
+        params.set(key, key.includes("Date") ? p2e(value) : value.value);
+      }
+    });
 
     router.push(`?${params.toString()}`);
   };
@@ -85,7 +86,7 @@ const Filters = React.memo(({ tours }) => {
       ...base,
       border: "1px solid #00000026",
       borderRadius: "12px",
-      boxShadow: "0 !important",
+      boxShadow: "none",
       "@media (min-width: 1024px)": {
         border: "0 !important",
         "&:hover": { border: "0 !important" },
@@ -192,6 +193,8 @@ const Filters = React.memo(({ tours }) => {
   );
 });
 
+Filters.displayName = "Filters";
+
 export default Filters;
 
 const customOption = ({ data, innerRef, innerProps }) => (
@@ -221,5 +224,5 @@ const useSelectOptions = (tours, key, IconComponent) => {
       }
     });
     return Array.from(uniqueOptions.values());
-  }, [tours, key, IconComponent]);
+  }, [tours, key]);
 };

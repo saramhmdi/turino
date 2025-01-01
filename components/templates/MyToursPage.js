@@ -6,7 +6,7 @@ import {
   persianDate,
   translateFleetVehicle,
 } from "../../core/utils/helper";
-import { sp } from "@/core/utils/numbersChange";
+import { e2p, sp } from "@/core/utils/numbersChange";
 import Sun from "../atoms/icons/Sun";
 
 import TitleIcon from "../molecules/TitleIcon";
@@ -82,13 +82,13 @@ function MyToursPage({ tour }) {
 
       <div className="flex py-2 items-center border-t border-[#00000033]">
         <p className="border-l border-[#00000033] text-[#00000080] text-[10px] md:text-[14px] px-5">
-          شماره تور{" "}
+          شماره تور
           <span className="text-text text-[10px] font-bold md:text-[14px] ">
-            {shortenCode(id)}
+            {e2p(shortenCode(id))}
           </span>
         </p>
         <p className="text-[#00000080] text-[10px] md:text-[14px]  px-5">
-          مبلغ پرداخت شده{" "}
+          مبلغ پرداخت شده
           <span className="text-text text-[10px] md:text-[14px]  font-medium">
             {sp(price)}
           </span>

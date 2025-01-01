@@ -36,7 +36,6 @@ function CheckOTPForm({ mobile, setStep}) {
       { mobile, code },
       {
         onSuccess: async (data) => {
-          setIsOpen(false);
           setStep(1);
         },
         onError: (error) => {

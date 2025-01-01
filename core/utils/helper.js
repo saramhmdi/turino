@@ -89,14 +89,11 @@ const shortenCode = (id) => {
   return (numericId % 100000000).toString().padStart(8, "0");
 };
 export {
-  locationToPersian,
-  convertToIsoString,
-  idToPersian,
+  locationToPersian,  idToPersian,
   translateFleetVehicle,
   getVehicleIcon,
   persianDate,
   calculateDayNight,
-  flattenObject,
   shortenCode,
   getVehicleIcon2
 };

@@ -37,18 +37,17 @@ function AuthForm({ reservation, id }) {
       </button>
 
       {step === 1 && (
-        <ModalContainer setIsOpen={setIsOpen} isOpen={isOpen}>
+        <ModalContainer isOpen={isOpen}>
           <SendOTPForm
             mobile={mobile}
             setMobile={setMobile}
             setStep={setStep}
-            setIsOpen={setIsOpen}
             handleCloseModal={handleCloseModal}
           />
         </ModalContainer>
       )}
       {step === 2 && (
-        <ModalContainer setIsOpen={setIsOpen} isOpen={isOpen}>
+        <ModalContainer isOpen={isOpen}>
           <CheckOTPForm
             mobile={mobile}
             setStep={setStep}

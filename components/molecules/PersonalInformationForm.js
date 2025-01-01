@@ -37,11 +37,11 @@ function PersonalInformationForm({ formData, setFormData, title }) {
       setFormData(value);
     });
     return () => subscription.unsubscribe();
-  }, [watch]);
+  }, [watch , setFormData]);
 
   return (
     <div className="border md:h-[230px] rounded-[10px] md:w-[65%] w-full pb-5 border-[#00000080] bg-background mt-4 p-5">
-      <p>{title}</p>
+      <h3>{title}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         <InputGroup
           label="نام و نام خانوادگی"

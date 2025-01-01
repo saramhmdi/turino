@@ -22,10 +22,10 @@ function ReserveButton({text , id}) {
     });
   };
   return (
-    <button
+    <span
     className="bg-primary py-2 px-4 lg:px-8 rounded-[10px] text-xl lg:text-2xl text-background"
     onClick={cartHandler}
-    >{text}</button>
+    >{text}</span>
   )
 }
 

@@ -2,14 +2,11 @@
 
 import FailedPayment from "@/components/templates/FailedPayment";
 import SuccessPayment from "@/components/templates/SuccessPayment";
-import useQuery from "@/core/hooks/query";
-import Link from "next/link";
-import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 function PaymentPage() {
-  const { getQuery } = useQuery();
-  console.log(getQuery);
-  const status = getQuery("status");
+  const searchParams = useSearchParams();
+  const status = searchParams.get("status");
 
   if (status === "success") return <SuccessPayment />;
 
